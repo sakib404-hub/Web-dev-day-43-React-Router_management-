@@ -1,15 +1,17 @@
 import React from 'react';
+import { NavLink } from 'react-router';
 
 const Header = () => {
     return (
         <div>
             <p className='text-center'>This is the header</p>
             <nav className='flex gap-4 justify-center'>
-                <a href="/">Home</a>
-                <a href="#">About Us</a>
-                <a href="#">Contact US</a>
-                <a href="Mobiles">Mobiles</a>
-                <a href="Laptops">laptops</a>
+                <NavLink to='/'>Home</NavLink>
+                <NavLink to='Mobiles'>Mobiles</NavLink>
+                <NavLink to='Laptops'>Laptops</NavLink>
+                <NavLink to='#'>About us</NavLink>
+                <NavLink to='users'>Users</NavLink>
+                <NavLink to='user2'>User2</NavLink>
             </nav>
         </div>
     );
