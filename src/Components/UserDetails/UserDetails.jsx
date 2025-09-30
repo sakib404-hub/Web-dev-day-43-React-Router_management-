@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 
 const UserDetails = () => {
     const user = useLoaderData();
@@ -7,9 +7,10 @@ const UserDetails = () => {
     const { id, name, email } = user;
 
     // loading Navigatior 
+    const path = useNavigate();
 
     const handleButtonClick = () => {
-        console.log('Button is clicked!')
+        path('/users')
     }
 
     return (
