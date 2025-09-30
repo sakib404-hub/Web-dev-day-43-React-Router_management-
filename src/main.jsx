@@ -9,17 +9,14 @@ import Home from './Components/Home/Home.jsx';
 import Mobiles from './Components/Mobiles/Mobiles.jsx';
 import Laptops from './Components/Laptops/Laptops.jsx';
 import User from './Components/User/User.jsx';
-import User2 from './Components/User2/User2.jsx';
+import UserDetails from './Components/UserDetails/UserDetails.jsx';
 
 
-const users = async () => {
-  const url = 'https://jsonplaceholder.typicode.com/users';
-  const res = await fetch(url);
-  return res.json();
-}
-
-
-const user2Promise = users();
+// const users = async () => {
+//   const url = 'https://jsonplaceholder.typicode.com/users';
+//   const res = await fetch(url);
+//   return res.json();
+// }
 
 const router = createBrowserRouter([
   {
@@ -36,10 +33,9 @@ const router = createBrowserRouter([
         Component: User
       },
       {
-        path: 'user2',
-        element: <Suspense>
-          <User2 user2Promise={user2Promise}></User2>
-        </Suspense>
+        path: 'users/:userDetails',
+        loader: ({ params }) => fetch(`https://jsonplaceholder.typicode.com/users/${params.userDetails}`),
+        Component: UserDetails
       }
     ]
   }

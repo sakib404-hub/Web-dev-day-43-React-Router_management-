@@ -1,12 +1,16 @@
 import React from 'react';
 import { useLoaderData } from 'react-router';
+import UserCard from './UserCard';
 
 const User = () => {
     const users = useLoaderData();
-    console.log(users);
     return (
-        <div>
-            <p>This Is the User!</p>
+        <div className='space-y-4'>
+            {
+                users.map((user) => <UserCard
+                    key={user.id}
+                    user={user}></UserCard>)
+            }
         </div>
     );
 };
